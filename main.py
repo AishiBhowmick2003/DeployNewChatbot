@@ -58,5 +58,13 @@ def ask_question(request: QueryRequest):
 def root():
     return {"message": "RAG Chatbot API is running!"}
 
+import os
+
+PORT = int(os.environ.get("PORT", 10000))  # Default to 10000 if PORT is not set
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
+
 
 
