@@ -9,12 +9,12 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 
 # Path to the single PDF file
-PDF_FILE = r"C:\Users\bhowm\OneDrive\Documents\FinalYearChatbot\medical_book.pdf"  # Replace with your PDF file name
+PDF_FILE = "./medical_book.pdf"  # Replace with your PDF file name
 DB_FAISS_PATH = "./chatbot_model/db_faiss"
 
 # Check if the PDF file exists
 if not os.path.exists(PDF_FILE):
-    raise FileNotFoundError(f"❌ PDF file '{PDF_FILE}' not found!")
+    raise FileNotFoundError(f" PDF file '{PDF_FILE}' not found!")
 
 # Load PDF document
 loader = PyMuPDFLoader(PDF_FILE)
@@ -30,4 +30,4 @@ db = FAISS.from_documents(docs, embedding_model)
 
 # Save FAISS index
 db.save_local(DB_FAISS_PATH)
-print("✅ FAISS index rebuilt successfully from the single PDF!")
+print("FAISS index rebuilt successfully from the single PDF!")
