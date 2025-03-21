@@ -139,7 +139,7 @@ import os
 
 PORT = int(os.environ.get("PORT", 10000))  # Default to 10000 if PORT is not set
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=PORT)
 
